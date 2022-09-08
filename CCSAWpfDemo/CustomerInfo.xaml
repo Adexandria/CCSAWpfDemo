@@ -71,8 +71,9 @@
                 <TextBlock Grid.Row="5" Grid.Column="1" Text="IsAdmin:" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="20"/>
                 <CheckBox IsChecked="{Binding SelectedCustomer.IsAdmin}" Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="3" Margin="5" FontSize="15" VerticalContentAlignment="Center"/>
 
-                <TextBox Style="{StaticResource myTextboxStyle}" Text="{Binding FirstName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="3" Margin="5" FontSize="15" VerticalContentAlignment="Center"/>
-
+                <TextBox x:Name="name" Style="{StaticResource myTextboxStyle}" Text="{Binding FirstName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="3" Margin="5" FontSize="15" VerticalContentAlignment="Center"/>
+                <TextBlock Grid.Row="7" Grid.Column="2"
+                            Text="{Binding ElementName= name , Path=(Validation.Errors)[0].ErrorContent}"/>
                 <Button Content="Reset" Click="Reset_Click" Grid.Row="7" Grid.Column="3" Margin="5"/>
                 <Button Content="Add Customer" Click="Add_Customer_Click" Grid.Row="7" Grid.Column="4" Margin="5"/>
             </Grid>
